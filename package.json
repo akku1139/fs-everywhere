@@ -1,0 +1,11 @@
+{
+  "name": "fs-everywhere",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+  },
+  "keywords": [],
+  "license": "MIT",
+  "packageManager": "pnpm@10.18.3"
+}
