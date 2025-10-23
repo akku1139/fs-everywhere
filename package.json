@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [],
   "license": "MIT",
-  "packageManager": "pnpm@10.18.3"
+  "packageManager": "pnpm@10.18.3",
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "typescript": "^5.9.3"
+  }
 }
