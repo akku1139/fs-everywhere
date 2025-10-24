@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.x
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm run typecheck
+      - run: pnpm run build && find ./dist -type f | sort
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        type: [basic]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24.x
+          cache: pnpm
+      - run: pnpm install
+      - run: pnpm run test:${{ matrix.type }}
+      - run: pnpm run test:${{ matrix.type }} --trace-warnings
+        if: ${{ failure() }}

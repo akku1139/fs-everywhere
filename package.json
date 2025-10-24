@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "typecheck": "tsc",
+    "test": "pnpm run typecheck && pnpm run test:basic",
+    "test:basic": "node --test",
+    "build": "tsc -p tsconfig.build.json"
+  },
   "keywords": [],
   "license": "MIT",
   "packageManager": "pnpm@10.18.3",
